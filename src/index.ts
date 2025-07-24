@@ -1,13 +1,17 @@
-import express, {Request, Response} from 'express'
-const app = express()
+import "dotenv/config"
 
-app.get("/", (req: Request, res: Response) => {
-  console.log("Method: ", req.method)
+import express from "express";
+import cors from 'cors'
 
-  res.send("This is a response")
-})
+const app = express();
 
-app.listen(3000, () => {
-  console.log("Listening")
-}) 
+import { authRouter } from "./routes/auth.routes";
 
+const PORT = process.env.PORT || 3000;
+
+app.use(cors())
+app.use("/auth", authRouter)
+
+app.listen(PORT, () => {
+  console.log(`Server is listening on http://localhost:${PORT}`);
+});
