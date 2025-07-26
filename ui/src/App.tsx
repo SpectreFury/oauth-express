@@ -2,7 +2,7 @@ import "./App.css";
 
 function App() {
   const handleLogin = async () => {
-    window.location.href = "http://localhost:3000/auth/google";
+    window.location.href = "http://localhost:3000/auth/google?redirectURL=http://localhost:5173";
   };
 
   return (
